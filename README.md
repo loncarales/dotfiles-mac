@@ -44,6 +44,10 @@ brew cask install font-hack-nerd-font
 brew cask install font-fira-code-nerd-font
 ```
 
+### Install Iterm2
+
+`brew cask install iterm2`
+
 ### Clone your existing repo using yadm
 
 `yadm clone git@github.com:loncarales/dotfiles-mac.git`
