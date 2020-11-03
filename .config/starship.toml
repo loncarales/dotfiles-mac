@@ -1,0 +1,103 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+clear_before_printing = true
+format = """\
+  $username\
+  $directory\
+  $git_branch\
+  $git_commit\
+  $git_state\
+  $git_status\
+  $cmd_duration\
+  $package\
+  $nodejs\
+  $ruby\
+  $rust\
+  $python\
+  $haskell\
+  $elm
+  $golang\
+  $cmd_duration\
+  $custom\
+  $line_break\
+  $jobs\
+  $battery\
+  $time\
+  $character\
+  """
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]      # The name of the module we are confguring is "character"
+#symbol = "➜"     # The "symbol" segment is being set to "➜"
+error_symbol = "✗" # The symbol used before text input if the previous command failed
+use_symbol_for_status = true # Indicate error status by changing the symbol
+
+# Disables the line_break module, making the prompt a single line
+[line_break]
+disabled = true
+
+[aws]
+symbol = " "
+
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+
+[conda]
+symbol = " "
+
+[docker]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
