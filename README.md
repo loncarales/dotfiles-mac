@@ -48,6 +48,14 @@ brew cask install font-fira-code-nerd-font
 
 `brew cask install iterm2`
 
+### Install tmux
+
+`brew cask install tmux`
+
+#### Install Tmux Plugin Manager
+
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+
 ### Clone your existing repo using yadm
 
 `yadm clone git@github.com:loncarales/dotfiles-mac.git`
