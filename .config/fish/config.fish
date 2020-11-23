@@ -8,14 +8,20 @@ end
 # Starship
 starship init fish | source
 
-# Direnv
-eval (direnv hook fish)
-
 # asdf 
 source (brew --prefix asdf)/asdf.fish
 
-# krew
+##################
+## asdf plugins ##
+##################
+# Direnv
+eval (direnv hook fish)
+
+# kubectl krew
 set -gx PATH $PATH $HOME/.krew/bin
+
+# Java - JAVA_HOME
+source ~/.asdf/plugins/java/set-java-home.fish
 
 # Iterm integration
 source ~/.iterm2_shell_integration.fish
@@ -24,3 +30,9 @@ source ~/.iterm2_shell_integration.fish
 alias ls='exa --group-directories-first --git --icons --color=auto'
 alias ll='ls -lhiFgHS'
 alias la='ls -alhiFgHS'
+
+# Aliases for tmux
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
