@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~' # `cd` is probably faster to type though
+alias -- -='cd -'
+
+# For sudo-ing aliases
+# https://wiki.archlinux.org/index.php/Sudo#Passing_aliases
+alias sudo='sudo '
+
+# docker aliases
+alias containers_status="watch -n 2 'docker ps --format \"table {{.ID}}\t {{.Image}}\t {{.Status}}\"'"
+alias containers_statistics='docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
+
+# Aliases for exa
+alias ls='exa --group-directories-first --git --icons --color=auto'
+alias ll='ls -lhiFgHS'
+alias la='ls -alhiFgHS'
+
+# Aliases for tmux
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
+alias tt="t choose-tree"

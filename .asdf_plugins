@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Direnv
+eval "$(direnv hook zsh)"
+
+# Java - JAVA_HOME
+source ~/.asdf/plugins/java/set-java-home.zsh

@@ -8,21 +8,20 @@
 
 `brew install yadm`
 
-## Install Fish
+## Install ZSH
 
-`brew install fish`
+`brew install zsh`
  
 ## Install the starship binary
 
 `brew install starship`
 
-## Install fisher plugins
+## Install zsh plugins
 
 ```bash
-danhper/fish-ssh-agent
-edc/bass
-evanlucas/fish-kubectl-completions
-jethrokuan/z
+zsh-completions
+zsh-autosuggestions
+zsh-syntax-highlighting
 ```
 
 ### Install asdf
