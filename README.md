@@ -23,9 +23,9 @@
 ## Install zsh plugins
 
 ```bash
-zsh-completions
-zsh-autosuggestions
-zsh-syntax-highlighting
+[zsh-completions](https://github.com/zsh-users/zsh-completions)
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-autosuggestions)
 ```
 
 ### Install asdf
@@ -35,9 +35,13 @@ brew install coreutils curl git
 brew install asdf
 ```
 
-### Install fortune, cowsay, lolcat 
+### Install fortune, cowsay, lolcat
 
 `brew install fortune cowsay lolcat`
+
+### Install exa
+
+`brew install exa`
 
 ### Install fonts
 
