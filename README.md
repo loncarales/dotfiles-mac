@@ -16,6 +16,10 @@
 
 `brew install starship`
 
+## Install Oh-my zsh
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
 ## Install zsh plugins
 
 ```bash
@@ -33,23 +37,23 @@ brew install asdf
 
 ### Install fortune, cowsay, lolcat 
 
-`brew install fortune cowsay, lolcat`
+`brew install fortune cowsay lolcat`
 
 ### Install fonts
 
 ```bash
 brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
-brew cask install font-fira-code-nerd-font
+brew install font-hack-nerd-font
+brew install font-fira-code-nerd-font
 ```
 
 ### Install Iterm2
 
-`brew cask install iterm2`
+`brew install iterm2`
 
 ### Install tmux
 
-`brew cask install tmux`
+`brew install tmux`
 
 #### Install Tmux Plugin Manager
 
