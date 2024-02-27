@@ -75,15 +75,27 @@ export ZSH="/Users/ales/.oh-my-zsh"
 plugins=(
   asdf
   git
-  osx
+  macos
   docker
   pip
   pyenv
   python
+  aliases
+  ansible
+  direnv
+  brew
+  aws
+  fzf
+  z
+  poetry
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+
+# Add custom z function
+fpath+=~/.zfunc
+
 # activate completions
 autoload -U compinit && compinit
 
@@ -115,9 +127,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 # load other dot files
-for file in ~/.{aliases,exports,asdf_plugins}; do
+for file in ~/.{aliases,exports,asdf_plugins,functions}; do
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
     source "$file"
   fi
@@ -132,3 +143,17 @@ source ~/.iterm2_shell_integration.zsh
 
 # Starship
 eval "$(starship init zsh)"
+
+# thefuck
+eval $(thefuck --alias)
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+#docs.pkgx.sh/shellcode
+source <(pkgx --shellcode)
+
+# greeting
+fortune | cowsay -f tux | lolcat
+
+export PATH="$HOME/.poetry/bin:$PATH"

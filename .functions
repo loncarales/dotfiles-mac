@@ -1,0 +1,18 @@
+#!/bin/bash
+
+gitdiff() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
+}
+
+preview() {
+    fzf --preview 'bat {-1} --color=always'
+}
+
+graylog-aws-sessions() {
+  bash -c "cd ~/Projects/Graylog/graylog-cloud/scripts/aws-sessions && poetry run ./renew_session.py -a $1"
+}
+
+graylog-find-host() {
+  grep "Host .*$1" ~/.ssh/config-graylog-cloud | awk '{ print $4,$3,$2 }'
+}

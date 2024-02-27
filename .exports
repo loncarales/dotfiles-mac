@@ -1,1 +1,6 @@
 #!/bin/bash
+
+export PATH="/usr/local/sbin:/Users/ales/.local/bin:$HOME/.asdf/installs/poetry/1.1.12/bin:$PATH"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# libpq
+export PATH="/usr/local/opt/libpq/bin:$PATH"
