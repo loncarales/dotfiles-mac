@@ -52,12 +52,12 @@ fi
 
 # Print system info
 echo -e "\e[1mSystem Information\e[0m
-\tOS Version: ${osName} ${osVersion} ${osbuildVersion} ${kernelVersion}
-\tProcessor.: ${procesorName} ${procesorCores} Cores
-\tMemory....: $((${memorySize} / (1024**3))) GB ${memorySpeed} ${memoryType}
-\tDisk Temp..: ${fontColor}${diskColor} ${diskTemperature}.0°C ${clear}
-\tCPU Temp..: ${fontColor}${cpuColor} ${cpuTemperature} ${clear}
-\tGPU Temp..: ${fontColor}${gpuColor} ${gpuTemperature} ${clear}
+* OS Version.: ${osName} ${osVersion} ${osbuildVersion} ${kernelVersion}
+* Processor..: ${procesorName} ${procesorCores} Cores
+* Memory.....: $((${memorySize} / (1024**3))) GB ${memorySpeed} ${memoryType}
+* Disk Temp..: ${fontColor}${diskColor} ${diskTemperature}.0°C ${clear}
+* CPU Temp...: ${fontColor}${cpuColor} ${cpuTemperature} ${clear}
+* GPU Temp...: ${fontColor}${gpuColor} ${gpuTemperature} ${clear}
 "
 
 # Define variables
