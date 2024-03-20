@@ -128,7 +128,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # load other dot files
-for file in ~/.{aliases,exports,asdf_plugins,functions}; do
+for file in ~/.{aliases,exports,asdf_plugins,functions,motd}; do
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
     source "$file"
   fi
@@ -153,7 +153,8 @@ eval "$(zoxide init zsh)"
 #docs.pkgx.sh/shellcode
 source <(pkgx --shellcode)
 
-# greeting
-fortune | cowsay -f tux | lolcat
+# PHPbrew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
-export PATH="$HOME/.poetry/bin:$PATH"
+# 1Password CLI
+eval "$(op completion zsh)"; compdef _op op

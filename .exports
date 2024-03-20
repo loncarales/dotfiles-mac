@@ -4,3 +4,12 @@ export PATH="/usr/local/sbin:/Users/ales/.local/bin:$HOME/.asdf/installs/poetry/
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # libpq
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+# Vagrant Boxes
+export VAGRANT_HOME=/Volumes/MiniMaestro/vagrant
+# Poetry bin
+export PATH="$HOME/.poetry/bin:$PATH"
+# PHP
+export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix krb5)/lib/pkgconfig:$(brew --prefix libedit)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix openssl)/lib/pkgconfig"
+export PATH="$(brew --prefix bison)/bin:$PATH"
+# Sencha Cmd
+export PATH="/Users/ales/bin/Sencha/Cmd:$PATH"

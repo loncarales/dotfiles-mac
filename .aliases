@@ -8,13 +8,31 @@ alias .....='cd ../../../..'
 alias ~='cd ~' # `cd` is probably faster to type though
 alias -- -='cd -'
 
+# Shortcuts
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Projects"
+alias g="git"
+
+# mv, rm, cp
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+
+# yes I occasionally 127.0.0.1
+alias hosts='sudo $EDITOR /etc/hosts'
+
+# Disk space
+alias diskspace_report="df -P -kHl"
+
 # For sudo-ing aliases
 # https://wiki.archlinux.org/index.php/Sudo#Passing_aliases
 alias sudo='sudo '
 
-# docker aliases
-alias containers_status="watch -n 2 'docker ps --format \"table {{.ID}}\t {{.Image}}\t {{.Status}}\"'"
-alias containers_statistics='docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
+# Podman aliases
+alias containers_status="watch -n 2 'podman ps --format \"table {{.ID}}\t {{.Image}}\t {{.Status}}\"'"
+alias containers_statistics='podman stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
 
 # Aliases for exa
 alias ls='exa --group-directories-first --git --icons --color=auto'
@@ -27,3 +45,36 @@ alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
 alias tt="t choose-tree"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Lock the screen (when going AFK)
+alias afk="osascript -e 'tell app \"System Events\" to key code 12 using {control down, command down}'"
+
+# Reload the shell
+alias reload='. ~/.zshrc'
+
+# Good 'ol Clear Screen command
+alias cls='clear'

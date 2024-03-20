@@ -3,79 +3,64 @@ add_newline = false
 
 format = "$all"
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "✗" # The symbol used before text input if the previous command failed
+[character]
+success_symbol = "[λ](grey)"
+error_symbol = "[λ](bold red)"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+style = " yellow"
+format = "[:$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = ""
+style = "bold white"
+format = '[\($symbol$branch\)]($style) '
+
+[git_status]
+# I don't care about untracked files or that there's a stash present.
+untracked = ""
+format = '([\[$conflicted$deleted$renamed$modified$staged$behind\]]($style) )'
+modified = '*'
+
+[status]
+disabled = false
+format = '[\[$status - $common_meaning\]](green)'
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'
 style = "bold blue"
 symbol = "🅰 "
-disabled = true
 
 [battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
-[conda]
-symbol = " "
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
 
 [docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[git_branch]
-symbol = " "
+format = 'via [🐋 $context](blue bold) '
 
 [golang]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[memory_usage]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
+format = 'via [🏎💨 $version](bold cyan) '
 
 [nodejs]
-symbol = " "
+format = 'via [🤖 $version](bold green) '
 
-[package]
-symbol = " "
+[perl]
+format = 'via [🦪 $version]($style) '
 
 [php]
-symbol = " "
+format = 'via [🔹 $version](147 bold) '
 
-[python]
-symbol = " "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
+[os]
+format = "on [($name )]($style)"
+style = "bold blue"
+disabled = false
 
 [kubernetes]
 format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-disabled = false
+disabled = true
 
 [kubernetes.context_aliases]
 'arn:aws:eks:eu-central-1:547858447164:cluster/tme-cid-eks-d3qwxVWA' = 'CI/CD'

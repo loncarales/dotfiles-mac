@@ -16,3 +16,19 @@ graylog-aws-sessions() {
 graylog-find-host() {
   grep "Host .*$1" ~/.ssh/config-graylog-cloud | awk '{ print $4,$3,$2 }'
 }
+
+op-get-p() {
+  op --account I4IHOW4OUJDYJMKWNORSWPD6JI --format json item get $1 | jq -r '.fields[] | select(.value != null and .value != "") | {id, value}'
+}
+
+op-get-b() {
+  op --account 6GNP7QUD5JDV5FKW5H3IRGHXOE --format json item get $1 | jq -r '.fields[] | select(.value != null and .value != "") | {id, value}'
+}
+
+op-find-p() {
+  op --account I4IHOW4OUJDYJMKWNORSWPD6JI --format json item list | jq -r --arg keyword "$1" '.[] | select(.title | contains($keyword)) | {id, title}'
+}
+
+op-find-b() {
+  op --account 6GNP7QUD5JDV5FKW5H3IRGHXOE --format json item list | jq -r --arg keyword "$1" '.[] | select(.title | contains($keyword)) | {id, title}'
+}

@@ -11,7 +11,7 @@
 ## Install ZSH
 
 `brew install zsh`
- 
+
 ## Install the starship binary
 
 `brew install starship`
@@ -35,9 +35,9 @@ brew install coreutils curl git
 brew install asdf
 ```
 
-### Install fortune, cowsay, lolcat
+### Install figlet, osx-cpu-temp, smartmontools, lolcat
 
-`brew install fortune cowsay lolcat`
+`brew install figlet osx-cpu-temp smartmontools lolcat`
 
 ### Install exa
 
