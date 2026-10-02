@@ -16,3 +16,30 @@ Thumbs.db
 # Extra
 .LSOverride
 .bundle
+.qodo
+
+# Local dotfiles state and downloaded Fish plugins
+/.local/share/dotfiles-backups/
+/.config/fish/*
+!/.config/fish/config.fish
+!/.config/fish/fish_plugins
+!/.config/fish/tide-settings.fish
+!/.config/fish/local.fish.example
+!/.config/fish/conf.d/
+!/.config/fish/functions/
+/.config/fish/conf.d/*
+!/.config/fish/conf.d/aliases.fish
+!/.config/fish/conf.d/environment.fish
+/.config/fish/functions/*
+!/.config/fish/functions/aws-mfa.fish
+!/.config/fish/functions/aws-mfa-clear.fish
+!/.config/fish/functions/gitdiff.fish
+!/.config/fish/functions/preview.fish
+!/.config/fish/functions/glances.fish
+!/.config/fish/functions/fuck.fish
+!/.config/fish/functions/fish_user_key_bindings.fish
+/.config/zellij/*.bak
+/.aliases
+/.exports
+/.functions
+/.config/starship.toml

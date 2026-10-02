@@ -1,92 +1,76 @@
-# Fresh Mac OS
+# Mac dotfiles
 
-## Install brew
+Personal Mac setup managed with yadm: Fish, Fisher, Tide, mise, eza, Ghostty and Zellij.
 
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+## Restore a Mac
 
-## Install yadm
+Install Apple's command-line tools and [Homebrew](https://brew.sh), then open a terminal where `brew` is on PATH.
 
-`brew install yadm`
-
-## Install ZSH
-
-`brew install zsh`
-
-## Install the starship binary
-
-`brew install starship`
-
-## Install Oh-my zsh
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-
-## Install zsh plugins
-
-```bash
-[zsh-completions](https://github.com/zsh-users/zsh-completions)
-[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-autosuggestions)
+```sh
+brew install yadm
+yadm clone git@github.com:loncarales/dotfiles-mac.git
+brew bundle install --file="$HOME/.Brewfile" --no-upgrade
 ```
 
-### Install asdf
+Set up GitHub SSH access before cloning, or use the repository's HTTPS URL. On an existing Mac, back up conflicting files before cloning; do not force an overwrite.
 
-```bash
-brew install coreutils curl git
-brew install asdf
+The Brewfile covers requested CLI packages, GUI apps, fonts and taps. It is an install list, not a version lock. Homebrew resolves dependencies. Uncertain older packages remain until reviewed; see [CLEANUP.md](CLEANUP.md).
+
+Restore Fisher plugins and saved prompt settings:
+
+```sh
+fisher_file="$(mktemp)"
+curl -fsSL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish -o "$fisher_file" &&
+  fish -c 'source $argv[1]; and fisher update; and source ~/.config/fish/tide-settings.fish' "$fisher_file"
+rm "$fisher_file"
 ```
 
-### Install figlet, osx-cpu-temp, smartmontools, lolcat
+`fish_plugins` is the plugin list. Plugin code is downloaded by Fisher and is not tracked. The saved Tide settings are applied once, so later `tide configure` changes remain yours. To restore the saved appearance again, source `~/.config/fish/tide-settings.fish` in Fish and reopen the shell.
 
-`brew install figlet osx-cpu-temp smartmontools lolcat`
+Install the versions already specified in mise:
 
-### Install exa
-
-`brew install exa`
-
-### Install fonts
-
-```bash
-brew tap homebrew/cask-fonts
-brew install font-hack-nerd-font
-brew install font-fira-code-nerd-font
+```sh
+mise install
 ```
 
-### Install Iterm2
+Run this from your home directory. It restores the global tools in `~/.config/mise/config.toml`; project-specific versions belong in each project. Fish activates mise in interactive sessions. For scripts, use `mise exec -- <command>`.
 
-`brew install iterm2`
+Set Fish as the login shell. Run these commands from the default macOS shell:
 
-### Install tmux
-
-`brew install tmux`
-
-#### Install Tmux Plugin Manager
-
-`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-
-### Clone your existing repo using yadm
-
-`yadm clone git@github.com:loncarales/dotfiles-mac.git`
-
-## Terminal output
-
-```bash
-   __  __                           _       _
-  |  \/  | __ _  ___      _ __ ___ (_)_ __ (_)
-  | |\/| |/ _` |/ __|____| '_ ` _ \| | '_ \| |
-  | |  | | (_| | (_|_____| | | | | | | | | | |
-  |_|  |_|\__,_|\___|    |_| |_| |_|_|_| |_|_|
-
-System Information
-* OS Version.: macOS 14.3.1 23D60 Darwin 23.3.0
-* Processor..: Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz 6 Cores
-* Memory.....: 32 GB 2667 MHz DDR4
-* Disk Temp..:  53.0°C
-* CPU Temp...:  61.2°C
-* GPU Temp...:  0.0°C
-
-HDD Usage: 416 GB out of 500 G
-[|||||||||||||||||||||||||||||||||||||||||---------]
-
-:~ took 6s
-on Mac OS λ
+```sh
+fish_path="$(command -v fish)"
+grep -qxF "$fish_path" /etc/shells || printf '%s\n' "$fish_path" | sudo tee -a /etc/shells
+chsh -s "$fish_path"
 ```
+
+Reopen Ghostty. Its config lives at `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`; Zellij uses `~/.config/zellij/config.kdl`.
+
+## Local settings
+
+Copy `~/.config/fish/local.fish.example` to `~/.config/fish/local.fish` only if the local file does not already exist. Add machine paths, build flags and account-specific settings there. It is ignored by yadm. Credentials, shell history, plugin downloads and `fish_variables` are not tracked.
+
+Independent Fish processes get separate temporary kubeconfigs under `/tmp/kubes`. Child shells inherit the parent's `KCONFDIR`. Existing kubeconfig contents are preserved. Nothing imports or merges your main kubeconfig automatically.
+
+The optional `~/.local/bin/system-info.fish` banner retains this Intel Mac's disk and temperature probes. Enable it from `local.fish` after checking disk IDs and available sensors on another Mac.
+
+Homebrew installs mise itself; mise manages its configured runtimes and Kubernetes tools. Homebrew runtimes required by other formulae should remain installed.
+
+## Maintain
+
+```sh
+brew bundle check --file="$HOME/.Brewfile" --no-upgrade
+python3 ~/.config/yadm/check-dotfiles.py
+yadm diff
+yadm add <specific-files>
+yadm commit
+```
+
+Add new Homebrew tools/apps to `~/.Brewfile` when installing them. Use explicit paths with yadm; do not add the entire home directory. Add personal Fish functions to the `.gitignore` allowlist before tracking them.
+
+Keep snapshots separate from the maintained Brewfile:
+
+```sh
+brew bundle dump --file="$HOME/Brewfile.snapshot"
+```
+
+Review the snapshot before tracking or sharing it. Do not overwrite the maintained Brewfile with a dump. Package removal is a separate review; this setup does not run `brew bundle cleanup --force`.

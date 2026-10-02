@@ -1,0 +1,8 @@
+# Copy to local.fish and add only settings this Mac needs.
+# set -gx VAGRANT_HOME /path/to/vagrant
+# fish_add_path --global --path "$HOMEBREW_PREFIX/opt/libpq/bin"
+# set -g DOTFILES_AWS_PROFILE your-profile
+# set -g DOTFILES_AWS_MFA_ARN arn:aws:iam::ACCOUNT:mfa/DEVICE
+# if status is-interactive
+#     "$HOME/.local/bin/system-info.fish"
+# end

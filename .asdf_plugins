@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# Java - JAVA_HOME
-source ~/.asdf/plugins/java/set-java-home.zsh
