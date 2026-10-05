@@ -18,8 +18,6 @@ tap "snyk/tap"
 tap "symfony-cli/tap"
 tap "tofuutils/tap"
 tap "trufflesecurity/trufflehog"
-# Search tool like grep, but optimized for programmers
-brew "ack"
 # Run your GitHub Actions locally
 brew "act"
 # Library for manipulating PNG images
@@ -50,8 +48,6 @@ brew "aom"
 brew "ca-certificates"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3", link: true
-# GitOps Continuous Delivery for Kubernetes
-brew "argocd"
 # C library implementing the SSH2 protocol
 brew "libssh2"
 # Download with resuming and segmented downloading
@@ -64,8 +60,6 @@ brew "autoconf"
 brew "automake"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
-# Microsoft Azure CLI 2.0
-brew "azure-cli"
 # C library of Git core methods that is re-entrant and linkable
 brew "libgit2"
 # Regular expressions library
@@ -92,8 +86,6 @@ brew "circleci"
 brew "cjson"
 # Cloud provider for KIND clusters
 brew "cloud-provider-kind"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Tool for interacting with remote images and registries
@@ -106,8 +98,6 @@ brew "ctop"
 brew "rtmpdump"
 # DuckDuckGo from the terminal
 brew "ddgr"
-# Minimal, fast alternative to 'du -sh'
-brew "diskus"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Isolated development environments using Docker
@@ -204,8 +194,6 @@ brew "guile"
 brew "hadolint"
 # Agent multiplexer that lives in your terminal
 brew "herdr"
-# Improved top (interactive process viewer)
-brew "htop"
 # C library for reading, creating, and modifying zip archives
 brew "libzip"
 # Tools and libraries to manipulate images in many formats
@@ -274,10 +262,6 @@ brew "nfpm"
 brew "nghttp2"
 # Port scanning utility for large networks
 brew "nmap"
-# Install NodeJS versions
-brew "node-build"
-# Node.js version manager
-brew "nodenv"
 # Libraries for security-enabled client and server applications
 brew "nss"
 # Development kit for the Java programming language
@@ -326,8 +310,6 @@ brew "sonar-scanner"
 brew "speedtest-cli"
 # SSTP (Microsoft's Remote Access Solution for PPP over SSL) client
 brew "sstp-client"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
 # Tool Command Language
@@ -376,8 +358,6 @@ brew "yt-dlp"
 brew "zlib"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# UNIX shell (command interpreter)
-brew "zsh"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
 # Your dev tool to manage /etc/hosts like a pro
